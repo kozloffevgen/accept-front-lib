@@ -4,4 +4,4 @@ commander.command('a').action(() => {
   console.log('123');
 })
 
-commander.parse();
+commander.parse(process.argv);
