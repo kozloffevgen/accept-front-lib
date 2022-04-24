@@ -1,0 +1,8 @@
+{
+  "name": "accept-front-lib",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": {
+    "accept-front-lib": "index.js"
+  }
+}
