@@ -1,13 +1,11 @@
 #!/usr/bin/env node
 const commander = require('commander')
-const { builder } = require('./webpack/config.build')
+const InitOptions = require('./configs/options')
 
-commander.command('build').action(() => {
-  console.log(builder);
-})
-
-commander.command('start').action(() => {
-  console.log('start');
+commander.command('build')
+.option('--config-path <path>')
+.action((options) => {
+  const initOptions = new InitOptions(options)
 })
 
 commander.parse(process.argv);
