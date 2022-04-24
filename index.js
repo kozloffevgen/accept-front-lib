@@ -1,1 +1,5 @@
-console.log('123');
+const commander = require('commander')
+
+commander.command('a').action(() => {
+  console.log('123');
+})

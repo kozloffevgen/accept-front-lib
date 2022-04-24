@@ -4,5 +4,8 @@
   "main": "index.js",
   "bin": {
     "accept-front-lib": "index.js"
+  },
+  "devDependencies": {
+    "commander": "^9.2.0"
   }
 }
