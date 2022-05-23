@@ -5,7 +5,7 @@ const commander = require('commander');
 const buildOptions = require('./options');
 const buildStyles = require('./webpack/config.build.styles');
 const buildScripts = require('./webpack/config.build.scripts');
-const webpackServe = require('./webpack/config.dev')
+const webpackServe = require('./webpack/config.dev');
 
 const webpackRun = (options, name, pathDir = {}) => {
   const compiler = webpack(options);
@@ -25,7 +25,7 @@ const webpackRun = (options, name, pathDir = {}) => {
     
     runServer();
   }
-}
+};
 
 commander.command('build')
 .option('--config-path <path>')
@@ -43,16 +43,4 @@ commander.command('build')
 
     webpackRun(scriptOptions, 'Scripts');
   }
-})
-
-commander.command('start')
-.option('--config-path <path>')
-.action((options) => {
-  const {scriptsPaths, configPathDir} = new buildOptions(options);
-  
-  const serveOptions =  buildScripts(scriptsPaths, configPathDir);
-
-  webpackRun(serveOptions, 'Serve', configPathDir);
-})
-
-commander.parse(process.argv);
+});
