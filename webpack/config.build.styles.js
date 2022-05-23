@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const LessPluginGlob = require('less-plugin-glob');
 
 const stylesBuild = (paths, pathDir) => {
   return {
@@ -33,7 +34,14 @@ const stylesBuild = (paths, pathDir) => {
           use: [
             MiniCssExtractPlugin.loader,
             "css-loader",
-            "less-loader",
+            {
+              loader: "less-loader",
+              options: {
+                lessOptions: {
+                  plugins: [LessPluginGlob],
+                },
+              },
+            },
           ],
         },
       ]
