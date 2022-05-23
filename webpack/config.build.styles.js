@@ -46,6 +46,11 @@ const stylesBuild = (paths, pathDir) => {
         },
       ]
     },
+    resolve: {
+      alias: {
+        ComponentsLess:`${path.dirname(__dirname)}\\components\\less`
+      }
+    }
   }
 }
 
