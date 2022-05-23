@@ -1,0 +1,13 @@
+@mobile-size: 360px;
+@tablet-size: 768px;
+@desktop-size: 1280px;
+@desktop-large-size: 1600px;
+
+@mobile: ~'only screen and (min-width: @{mobile-size})';
+@tablet: ~'only screen and (min-width: @{tablet-size})';
+@desktop: ~'only screen and (min-width: @{desktop-size})';
+@desktop-large: ~'only screen and (min-width: @{desktop-large-size})';
+
+@mobile-only: ~'only screen and (max-width: @{tblet-size})';
+@tablet-only: ~'(min-width: @{tablet-size} and (max-width: @{desktop-size}';
+@desktop-only:~'(min-width: @{desktop-size} and (max-width: @{desktop-large-size})'; 
