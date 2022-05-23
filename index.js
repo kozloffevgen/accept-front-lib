@@ -5,7 +5,6 @@ const commander = require('commander');
 const buildOptions = require('./options');
 const buildStyles = require('./webpack/config.build.styles');
 const buildScripts = require('./webpack/config.build.scripts');
-const webpackServe = require('./webpack/config.dev');
 
 const webpackRun = (options, name, pathDir = {}) => {
   const compiler = webpack(options);
