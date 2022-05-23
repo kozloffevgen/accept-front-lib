@@ -1,29 +1,16 @@
 #!/usr/bin/env node
 const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
 const commander = require('commander');
 const buildOptions = require('./options');
 const buildStyles = require('./webpack/config.build.styles');
 const buildScripts = require('./webpack/config.build.scripts');
 
-const webpackRun = (options, name, pathDir = {}) => {
+const webpackRun = (options, name) => {
   const compiler = webpack(options);
   compiler.run((err) => {
     if (err) console.log(err);
     else console.log(`Webpack Build ${name} Done!`)
   })
-
-  if (name === 'Serve') {
-    const devServerOptions = webpackServe(pathDir);
-    const server = new WebpackDevServer(devServerOptions, compiler);
-
-    const runServer = async () => {
-      console.log('Starting server...');
-      await server.start();
-    };
-    
-    runServer();
-  }
 };
 
 commander.command('build')
@@ -43,3 +30,5 @@ commander.command('build')
     webpackRun(scriptOptions, 'Scripts');
   }
 });
+
+commander.parse(process.argv);
