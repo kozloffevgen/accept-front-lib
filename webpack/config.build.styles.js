@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const LessPluginGlob = require('less-plugin-glob');
+const path = require('path');
 
 const stylesBuild = (paths, pathDir) => {
   return {
