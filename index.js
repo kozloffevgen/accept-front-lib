@@ -4,6 +4,7 @@ const commander = require('commander');
 const buildOptions = require('./options');
 const buildStyles = require('./webpack/config.build.styles');
 const buildScripts = require('./webpack/config.build.scripts');
+const buildSvg = require('./webpack/config.svg');
 
 const webpackRun = (options, name) => {
   const compiler = webpack(options);
@@ -30,5 +31,13 @@ commander.command('build')
     webpackRun(scriptOptions, 'Scripts');
   }
 });
+
+commander.command('svg')
+.action(() => {
+  const {configPathDir} = new buildOptions(options);
+  const svgOptions = buildSvg(configPathDir);
+
+  webpackRun(svgOptions, 'Svg')
+}); 
 
 commander.parse(process.argv);
