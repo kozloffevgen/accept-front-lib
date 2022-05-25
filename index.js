@@ -34,7 +34,7 @@ commander.command('build')
 
 commander.command('svg')
 .action(() => {
-  const {configPathDir} = new buildOptions(options);
+  const {configPathDir} = new buildOptions();
   const svgOptions = buildSvg(configPathDir);
 
   webpackRun(svgOptions, 'Svg')
