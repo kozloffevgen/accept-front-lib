@@ -8,6 +8,7 @@
   "dependencies": {
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.16.8",
+    "@vue/cli-service": "^5.0.4",
     "babel-loader": "^8.2.3",
     "commander": "^9.2.0",
     "css-loader": "^6.5.1",
