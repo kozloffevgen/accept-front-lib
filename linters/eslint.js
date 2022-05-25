@@ -11,6 +11,7 @@ module.exports = {
     'quotes': [2, 'single'],
     'indent': [2, 2],
     'comma-dangle': [2, 'always-multiline'],
+    'no-unused-vars': [1, {'args': 'none'}],
     'comma-spacing': [2, {
       before: false,
     }],
