@@ -5,7 +5,7 @@ const defaultOptions ={
 }
 
 class buildOptions {
-  constructor(options) {
+  constructor(options = {}) {
     this.options = {
       ...defaultOptions,
       ...options,
