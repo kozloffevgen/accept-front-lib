@@ -1,7 +1,7 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-const scriptBuildOptions = (paths, pathDir) => {
+module.exports = (paths, pathDir) => {
   return {
     mode: 'production',
     optimization: {
@@ -50,5 +50,3 @@ const scriptBuildOptions = (paths, pathDir) => {
     },
   }
 }
-
-module.exports = scriptBuildOptions;

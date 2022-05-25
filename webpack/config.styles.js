@@ -3,7 +3,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const LessPluginGlob = require('less-plugin-glob');
 const path = require('path');
 
-const stylesBuild = (paths, pathDir) => {
+module.exports = (paths, pathDir) => {
   return {
     mode: 'production',
     optimization: {
@@ -54,5 +54,3 @@ const stylesBuild = (paths, pathDir) => {
     }
   }
 }
-
-module.exports = stylesBuild;

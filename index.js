@@ -2,11 +2,12 @@
 const webpack = require('webpack');
 const commander = require('commander');
 const buildOptions = require('./options');
-const buildStyles = require('./webpack/config.build.styles');
-const buildScripts = require('./webpack/config.build.scripts');
+const buildStyles = require('./webpack/config.styles');
+const buildScripts = require('./webpack/config.scripts');
 const buildSvg = require('./webpack/config.svg');
 
 const webpackRun = (options, name) => {
+  console.log(`Webpack Build ${name} Start...`)
   const compiler = webpack(options);
   compiler.run((err) => {
     if (err) console.log(err);
