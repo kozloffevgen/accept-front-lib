@@ -12,9 +12,8 @@ const errorMessage = (error) => {
 }
 
 const webpackRun = (options, name) => {
-  console.log(chalk.hex('#ff9800')`Webpack Build ${name} Start...`)
-  const compiler = webpack(options);
-  compiler.run((err, state) => {
+  console.log(chalk.hex('#ff9800')(`Webpack Build ${name} Start...`));
+  webpack(options).run((err, state) => {
     if (err) {
       errorMessage(err);
       process.exit(1);
