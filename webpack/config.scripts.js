@@ -22,6 +22,10 @@ module.exports = (paths, pathDir) => {
     module: {
       rules: [
         {
+          test: /\.svg$/,
+          loader: 'vue-svg-loader',
+        },
+        {
           test: /\.less$/,
           use: [
             'vue-style-loader',
@@ -51,7 +55,8 @@ module.exports = (paths, pathDir) => {
     },
     resolve: {
       alias: {
-        ComponentsJs:`${path.dirname(__dirname)}\\components\\js`
+        ComponentsJs:`${path.dirname(__dirname)}/components/js`,
+        Svg: `${pathDir}/App/www/images/svg-sprite`
       }
     }
   }
