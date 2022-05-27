@@ -33,7 +33,7 @@ module.exports = (pathDir) => {
       },
     ],
     output: {
-      path: `${pathDir}/App/www/images/svg-sprite`,
+      path: `${pathDir}/src/client/images/sprites`,
     },
   }
 };

@@ -59,7 +59,6 @@ module.exports = (paths, pathDir) => {
     resolve: {
       alias: {
         ComponentsJs:`${path.dirname(__dirname)}/components/js`,
-        Svg: `${pathDir}/App/www/images/svg-sprite`
       }
     }
   }
