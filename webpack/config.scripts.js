@@ -22,7 +22,7 @@ module.exports = (paths, pathDir) => {
     module: {
       rules: [
         {
-          test: /\.css$/,
+          test: /\.less$/,
           use: [
             'vue-style-loader',
             'css-loader'
