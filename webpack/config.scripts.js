@@ -22,8 +22,11 @@ module.exports = (paths, pathDir) => {
     module: {
       rules: [
         {
-          test: /\.svg$/,
-          loader: 'vue-svg-loader',
+          test: /\.(png|svg|jpe?g)$/i,
+          loader: 'url-loader',
+          options: {
+            esModule: false
+          }
         },
         {
           test: /\.less$/,
