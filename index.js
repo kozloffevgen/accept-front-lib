@@ -1,16 +1,28 @@
 #!/usr/bin/env node
 const webpack = require('webpack');
 const commander = require('commander');
+const chalk = require('chalk');
 const buildOptions = require('./options');
 const buildStyles = require('./webpack/config.styles');
 const buildScripts = require('./webpack/config.scripts');
 const buildSvg = require('./webpack/config.svg');
 
+const errorMessage = (error) => {
+  console.log(chalk.red(error))
+}
+
 const webpackRun = (options, name) => {
   console.log(`Webpack Build ${name} Start...`)
   const compiler = webpack(options);
-  compiler.run((err) => {
-    if (err) console.log(err);
+  compiler.run((err, state) => {
+    if (err) {
+      errorMessage(err);
+      process.exit(1);
+    }
+    if (state.compilation.errors) {
+      errorMessage(state.compilation.errors);
+      process.exit(1);
+    }
     else console.log(`Webpack Build ${name} Done!`)
   })
 };
