@@ -19,7 +19,7 @@ const webpackRun = (options, name) => {
       errorMessage(err);
       process.exit(1);
     }
-    if (state.compilation.errors) {
+    if (state.compilation.errors.length) {
       errorMessage(state.compilation.errors);
       process.exit(1);
     }
