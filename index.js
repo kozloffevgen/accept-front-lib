@@ -12,7 +12,7 @@ const errorMessage = (error) => {
 }
 
 const webpackRun = (options, name) => {
-  console.log(`Webpack Build ${name} Start...`)
+  console.log(chalk.hex('#ff9800')`Webpack Build ${name} Start...`)
   const compiler = webpack(options);
   compiler.run((err, state) => {
     if (err) {
@@ -23,7 +23,7 @@ const webpackRun = (options, name) => {
       errorMessage(state.compilation.errors);
       process.exit(1);
     }
-    else console.log(`Webpack Build ${name} Done!`)
+    else console.log(chalk.green(`Webpack Build ${name} Done!`));
   })
 };
 
