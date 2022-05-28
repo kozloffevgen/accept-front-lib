@@ -6,5 +6,6 @@ module.exports = {
   plugins: ['stylelint-order', 'stylelint-less'],
   rules: {
     'string-quotes': 'single',
+    'comment-empty-line-before': 'never',
   }
 }
