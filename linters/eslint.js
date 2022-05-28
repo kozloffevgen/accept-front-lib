@@ -32,6 +32,8 @@ module.exports = {
     "vue/no-undef-components": ["error", {
       "ignorePatterns": []
     }],
-    "vue/padding-line-between-blocks": ["error", "always"]
+    "vue/padding-line-between-blocks": ["error", "always"],
+    "vue/require-default-prop": 0,
+    "vue/require-prop-types": 0,
   }
 }
