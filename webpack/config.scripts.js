@@ -32,7 +32,8 @@ module.exports = (paths, pathDir) => {
           test: /\.less$/,
           use: [
             'vue-style-loader',
-            'css-loader'
+            'css-loader',
+            'less-loader',
           ]
         },
         {
