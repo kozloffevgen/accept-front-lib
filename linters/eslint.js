@@ -25,9 +25,6 @@ module.exports = {
       "submit": true,
       "reset": true
     }],
-    "vue/new-line-between-multi-line-property": ["error", {
-      "minLineOfMultilineProperty": 2
-    }],
     "vue/no-potential-component-option-typo": ["error", {
       "presets": ["all"],
       "custom": ["test"]
