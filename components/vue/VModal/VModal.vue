@@ -50,6 +50,7 @@ export default {
   methods: {
     hideModal() {
       this.open = false;
+      this.$emit('updateOpen', this.open)
     }
   }
 }
