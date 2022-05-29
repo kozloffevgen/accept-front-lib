@@ -59,6 +59,7 @@ module.exports = (paths, pathDir) => {
     },
     resolve: {
       alias: {
+        ComponentsLess:`${path.dirname(__dirname)}/components/less`,
         ComponentsJs:`${path.dirname(__dirname)}/components/js`,
         ComponentsVue:`${path.dirname(__dirname)}/components/vue`,
       }
