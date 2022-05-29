@@ -35,5 +35,6 @@ module.exports = {
     "vue/padding-line-between-blocks": ["error", "always"],
     "vue/require-default-prop": 0,
     "vue/require-prop-types": 0,
+    "vue/attribute-hyphenation": 0,
   }
 }
