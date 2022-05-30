@@ -46,13 +46,14 @@ export default {
     },
     removeBodyOverflow() {
       if (this.open) document.body.style.overflow = 'hidden';
-      else document.body.removeAttribute('style');
     }
   },
   methods: {
     hideModal() {
       this.open = false;
       this.$emit('updateOpen', this.open)
+
+      document.body.removeAttribute('style');
     }
   },
 }
