@@ -1,27 +1,30 @@
 <template>
   <div>
-    <div 
-      class="shadow" 
-      :class="{'show': open}"
-      @click="hideModal"
-    >
-    {{ removeBodyOverflow }}
-    </div>
-    <div :class="classes">
-      <div class="v-modal-top">
-        <slot name="title" />
-        <svg 
-          class="v-modal__btn-close"
-          width="20px"
-          height="20px"
-          @click="hideModal"
-
-        >
-          <use href="./svg/VModal.svg#close" />
-        </svg>
+    <transition name="shadow">
+      <div
+        v-if="open"
+        class="shadow" 
+        @click="hideModal"
+      >
+      {{ removeBodyOverflow }}
       </div>
-      <slot name="content" />
-    </div>
+    </transition>
+    <transition name="modal">
+      <div v-if="open" :class="classes">
+        <div class="v-modal-top">
+          <slot name="title" />
+          <svg
+            class="v-modal__btn-close"
+            width="20px"
+            height="20px"
+            @click="hideModal"
+          >
+            <use href="./svg/VModal.svg#close" />
+          </svg>
+        </div>
+        <slot name="content" />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -37,13 +40,12 @@ export default {
     classes() {
       return {
         'v-modal': true,
-        'sidebar': this.sidebar,
-        'sidebar-left': this.sidebar && this.sidebarLeft,
-        'open': this.open,
+        'sidebar': this.sidebar || this.sidebarLeft,
+        'sidebar-left': this.sidebarLeft,
       }
     },
     removeBodyOverflow() {
-    if (this.open) document.body.style.overflow = 'hidden';
+      if (this.open) document.body.style.overflow = 'hidden';
       else document.body.removeAttribute('style');
     }
   },
@@ -52,7 +54,7 @@ export default {
       this.open = false;
       this.$emit('updateOpen', this.open)
     }
-  }
+  },
 }
 </script>
 
