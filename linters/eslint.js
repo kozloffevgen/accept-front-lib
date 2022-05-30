@@ -36,5 +36,6 @@ module.exports = {
     "vue/require-default-prop": 0,
     "vue/require-prop-types": 0,
     "vue/attribute-hyphenation": 0,
+    'vue/no-v-html': 0,
   }
 }
