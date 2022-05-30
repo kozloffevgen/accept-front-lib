@@ -8,6 +8,7 @@ module.exports = {
     'string-quotes': 'single',
     'comment-empty-line-before': ['always', {
       except: ["first-nested"]
-    }],
+    }], 
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]",
   }
 }
