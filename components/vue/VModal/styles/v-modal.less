@@ -16,11 +16,17 @@
 
 .v-modal {
   position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: auto;
   min-width: 200px;
+  max-width: 600px;
+  margin: auto;
   padding: 20px;
   background-color: var(--color-bg-default);
-  transition: transform 0.25s ease;
+  transition: all 0.25s ease;
 
   &-top {
     position: relative;
@@ -37,9 +43,7 @@
   }
 
   &.sidebar {
-    top: 0;
-    right: 0;
-    bottom: 0;
+    left: auto;
   }
 
   &.sidebar-left {
@@ -48,10 +52,16 @@
   }
 }
 
-.modal-enter-active, .modal-leave-active {
-  transform: translateX(100%);
+.v-modal:not(.slider) {
+  &.modal-enter-active,
+  &.modal-leave-active {
+    opacity: 0;
+  }
 }
 
-.sidebar-left.modal-enter-active, .sidebar-left.modal-leave-active {
-  transform: translateX(-100%);
+.sidebar {
+  &.modal-enter-active,
+  &.modal-leave-active {
+    transform: translateX(100%);
+  }
 }

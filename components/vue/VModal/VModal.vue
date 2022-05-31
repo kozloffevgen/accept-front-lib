@@ -33,16 +33,14 @@ export default {
   name: 'VModal',
   props: {
     sidebar: { Boolean, default: false },
-    sidebarLeft: { Boolean, default: false },
     open: { Boolean, default: false },
   },
   computed: {
     classes() {
       return {
         'v-modal': true,
-        'sidebar': this.sidebar || this.sidebarLeft,
-        'sidebar-left': this.sidebarLeft,
-      }
+        'sidebar': this.sidebar,
+      };
     },
     removeBodyOverflow() {
       if (this.open) document.body.style.overflow = 'hidden';
