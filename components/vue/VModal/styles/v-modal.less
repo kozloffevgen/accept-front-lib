@@ -2,13 +2,15 @@
   position: fixed;
   min-width: 200px;
   max-width: 600px;
-  min-height: 200px;
+  min-height: 100px;
+  max-height: 600px;
   margin: 0 10px;
   padding: 28px;
+  overflow-y: hidden;
   background-color: var(--color-bg-default);
 
   &__header {
-    margin-bottom: 20px;
+    padding-bottom: 20px;
   }
 
   &__btn-close {
@@ -18,11 +20,16 @@
     cursor: pointer;
   }
 
+  &__content {
+    overflow-y: auto;
+  }
+
   &.sidebar {
     top: 0;
     right: 0;
     bottom: 0;
     margin: 0;
+    max-height: none;
     transition: transform 0.3s ease;
   }
 }

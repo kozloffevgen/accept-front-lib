@@ -17,7 +17,9 @@
             <use href="./svg/VModal.svg#close" />
           </svg>
         </div>
-        <slot name="content" />
+        <div ref="content" class="v-modal__content">
+          <slot name="content" />
+        </div>
       </div>
     </div>
   </transition>
@@ -45,19 +47,33 @@ export default {
 
       this.$emit('update');
     },
-  },
-  updated() {
-    const coordY = window.scrollY;
-    if (this.open) {
-      window.onscroll = (e) => {
-        window.scrollTo(0, coordY)
+    cancelScroll() {
+      const coordY = window.scrollY;
+      if (this.open) {
+        window.onscroll = (e) => {
+          window.scrollTo(0, coordY)
+        }
+
+        return;
       }
 
-      return;
-    }
+      window.onscroll = false;
+    },
+    setHeightContentBlock() {
+      const topBottomPadding = 56;
+      const modalHeight = document.querySelector('.v-modal').clientHeight;
+      const modalHeaderHeight = document.querySelector('.v-modal__header').clientHeight;
+      const contentHeight = modalHeight - topBottomPadding - modalHeaderHeight;
+      
+      if (!this.open) return;
 
-    window.onscroll = false;
-  }
+      this.$refs.content.style.height = `${contentHeight}px`;
+    },
+  },
+  updated() {
+    this.cancelScroll();
+    this.setHeightContentBlock();
+  },
 };
 </script>
 
