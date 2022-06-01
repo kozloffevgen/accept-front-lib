@@ -26,11 +26,18 @@
 </template>
 
 <script>
+import getDeviceType from './../../js/getDeviceType';
+
 export default {
   name: 'VModal',
   props: {
     open: false,
     sidebar: false,
+  },
+  data() {
+    return {
+      isDesktop: getDeviceType() === 'DESKTOP',
+    }
   },
   computed: {
     classes() {
@@ -48,16 +55,30 @@ export default {
       this.$emit('update');
     },
     cancelScroll() {
-      const coordY = window.scrollY;
-      if (this.open) {
-        window.onscroll = (e) => {
-          window.scrollTo(0, coordY)
+      if (!this.isDesktop) {
+        if (this.open) {
+          document.body.style.overflow = 'hidden';
+
+          return;
         }
 
-        return;
+        document.body.removeAttribute('style');
       }
+    },
+    cancelScrollDesktop() {
+      if (this.isDesktop) {
+        const coordY = window.scrollY;
 
-      window.onscroll = false;
+        if (this.open) {
+          window.onscroll = (e) => {
+            window.scrollTo(0, coordY)
+          }
+
+          return;
+        }
+
+        window.onscroll = false;
+      }
     },
     setHeightContentBlock() {
       const topBottomPadding = 56;
@@ -72,6 +93,7 @@ export default {
   },
   updated() {
     this.cancelScroll();
+    this.cancelScrollDesktop();
     this.setHeightContentBlock();
   },
 };
