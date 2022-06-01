@@ -1,17 +1,12 @@
 <template>
-  <div>
-    <transition name="shadow">
-      <div
-        v-if="open"
-        class="shadow" 
-        @click="hideModal"
-      >
-      {{ removeBodyOverflow }}
-      </div>
-    </transition>
-    <transition name="modal">
-      <div v-if="open" :class="classes">
-        <div class="v-modal-top">
+  <transition name="modal">
+    <div
+      v-if="open"
+      class="shadow" 
+      @click="hideModal"
+    >
+      <div :class="classes">
+        <div class="v-modal__header">
           <slot name="title" />
           <svg
             class="v-modal__btn-close"
@@ -24,16 +19,16 @@
         </div>
         <slot name="content" />
       </div>
-    </transition>
-  </div>
+    </div>
+  </transition>
 </template>
 
 <script>
 export default {
   name: 'VModal',
   props: {
-    sidebar: { Boolean, default: false },
-    open: { Boolean, default: false },
+    open: false,
+    sidebar: false,
   },
   computed: {
     classes() {
@@ -42,19 +37,16 @@ export default {
         'sidebar': this.sidebar,
       };
     },
-    removeBodyOverflow() {
-      if (this.open) document.body.style.overflow = 'hidden';
-    }
   },
   methods: {
-    hideModal() {
-      this.open = false;
-      this.$emit('updateOpen', this.open)
+    hideModal({ target }) {
+      if (!target.classList.contains('shadow') 
+      && !target.closest('.v-modal__btn-close')) return;
 
-      document.body.removeAttribute('style');
-    }
+      this.$emit('update');
+    },
   },
-}
+};
 </script>
 
 <style lang="less" scoped>
