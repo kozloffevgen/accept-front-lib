@@ -46,6 +46,18 @@ export default {
       this.$emit('update');
     },
   },
+  updated() {
+    const coordY = window.scrollY;
+    if (this.open) {
+      window.onscroll = (e) => {
+        window.scrollTo(0, coordY)
+      }
+
+      return;
+    }
+
+    window.onscroll = false;
+  }
 };
 </script>
 
